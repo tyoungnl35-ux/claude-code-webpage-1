@@ -101,15 +101,15 @@ export default function Home() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 lg:h-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-32 lg:h-36">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-36 h-10 lg:w-44 lg:h-12">
+          <a href="#" className="flex items-center group shrink-0">
+            <div className="relative w-[28rem] h-28 lg:w-[36rem] lg:h-32">
               <Image
                 src="/AgentiqBridge Logo 2.png"
                 alt="AgentiqBridge Logo"
                 fill
-                sizes="(max-width: 768px) 144px, 176px"
+                sizes="(max-width: 768px) 448px, 576px"
                 className="object-contain object-left"
                 priority
               />
