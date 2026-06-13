@@ -101,15 +101,15 @@ export default function Home() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-32 lg:h-36">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-28 lg:h-44">
           {/* Logo */}
-          <a href="#" className="flex items-center group shrink-0">
-            <div className="relative w-[28rem] h-28 lg:w-[36rem] lg:h-32">
+          <a href="#" className="flex items-center group flex-1 min-w-0 pr-6">
+            <div className="relative h-24 lg:h-40 w-full max-w-[22rem] sm:max-w-[34rem] lg:max-w-[52rem]">
               <Image
                 src="/AgentiqBridge Logo 2.png"
                 alt="AgentiqBridge Logo"
                 fill
-                sizes="(max-width: 768px) 448px, 576px"
+                sizes="(max-width: 640px) 352px, (max-width: 1024px) 544px, 832px"
                 className="object-contain object-left"
                 priority
               />
@@ -210,9 +210,9 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right: cyber-woman image */}
+              {/* Right: cyber-woman image — 25% smaller to expose more shader */}
               <div className="relative flex items-center justify-center lg:justify-end animate-fade-up delay-400">
-                <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+                <div className="relative w-full max-w-[21rem] lg:max-w-[24rem] xl:max-w-[27rem]">
                   {/* Coral corner accents */}
                   <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-[#FF6F61] z-10" />
                   <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-[#FF6F61] z-10" />
