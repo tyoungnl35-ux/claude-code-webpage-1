@@ -150,3 +150,21 @@ body {
   margin-bottom: 1rem;
   transform: skewX(-20deg);
 }
+
+/* ─── Shader hero animations ─────────────────────── */
+@keyframes coralPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 111, 97, 0.4); }
+  50%       { box-shadow: 0 0 20px 6px rgba(255, 111, 97, 0.15); }
+}
+
+/* Gradient text shift used by shader hero */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}

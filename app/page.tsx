@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useShaderBackground } from "@/components/ui/animated-shader-hero";
 
 // ─── Intersection Observer hook for scroll animations ────────────────────────
 function useInView(threshold = 0.15) {
@@ -78,6 +79,7 @@ export default function Home() {
   const servicesSection = useInView();
   const statsSection = useInView();
   const contactSection = useInView();
+  const shaderCanvasRef = useShaderBackground();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -148,21 +150,21 @@ export default function Home() {
 
       <main>
         {/* ═══════════════════════════════════════════════
-            HERO — split layout with diagonal separator
+            HERO — WebGL shader bg + split content layout
         ═══════════════════════════════════════════════ */}
-        <section className="relative min-h-screen bg-[#1F2937] overflow-hidden flex items-center">
-          {/* Background grid texture */}
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(255,111,97,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,111,97,0.3) 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-            }}
+        <section className="relative min-h-screen overflow-hidden flex items-center bg-black">
+          {/* ── Animated WebGL shader canvas (bottom layer) ── */}
+          <canvas
+            ref={shaderCanvasRef}
+            className="absolute inset-0 w-full h-full touch-none pointer-events-none"
+            aria-hidden="true"
           />
 
-          {/* Coral radial glow behind image */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[60%] h-[80%] rounded-full bg-[radial-gradient(ellipse,rgba(255,111,97,0.08)_0%,transparent_70%)] pointer-events-none" />
+          {/* Dark vignette — keeps text legible over the bright shader */}
+          <div className="absolute inset-0 bg-black/45" />
+
+          {/* Subtle coral radial bloom behind the image side */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[75%] rounded-full bg-[radial-gradient(ellipse,rgba(255,111,97,0.06)_0%,transparent_70%)] pointer-events-none" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-16 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-6rem)]">
@@ -179,7 +181,7 @@ export default function Home() {
                 {/* Headline */}
                 <h1 className="font-display text-[clamp(3.5rem,9vw,6.5rem)] leading-[0.95] tracking-wide text-white mb-6 animate-fade-up">
                   <span className="block">BRIDGE</span>
-                  <span className="block text-[#FF6F61]">BRILLIANCE</span>
+                  <span className="block text-[#FF6F61] [text-shadow:0_0_40px_rgba(255,111,97,0.4)]">BRILLIANCE</span>
                   <span className="block">TO BUSINESS</span>
                 </h1>
 
@@ -198,7 +200,7 @@ export default function Home() {
                   </a>
                   <a
                     href="#services"
-                    className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors uppercase tracking-widest font-semibold border border-white/10 hover:border-white/30 px-8 py-4 rounded-sm"
+                    className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors uppercase tracking-widest font-semibold border border-white/10 hover:border-[#FF6F61]/40 px-8 py-4 rounded-sm backdrop-blur-sm"
                   >
                     Our Services
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -210,7 +212,6 @@ export default function Home() {
 
               {/* Right: cyber-woman image */}
               <div className="relative flex items-center justify-center lg:justify-end animate-fade-up delay-400">
-                {/* Diagonal frame */}
                 <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
                   {/* Coral corner accents */}
                   <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-[#FF6F61] z-10" />
@@ -225,8 +226,8 @@ export default function Home() {
                       className="object-cover object-top"
                       priority
                     />
-                    {/* Subtle dark overlay at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#1F2937] to-transparent" />
+                    {/* Fade into black to blend with the shader */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
                   </div>
                 </div>
               </div>
@@ -234,7 +235,7 @@ export default function Home() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
             <span className="text-[10px] text-gray-400 uppercase tracking-widest">Scroll</span>
             <svg className="w-4 h-4 text-[#FF6F61]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
