@@ -101,10 +101,10 @@ export default function Home() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-28 lg:h-44">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 sm:h-20 lg:h-44">
           {/* Logo */}
           <a href="#" className="flex items-center group flex-1 min-w-0 pr-6">
-            <div className="relative h-24 lg:h-40 w-full max-w-[22rem] sm:max-w-[34rem] lg:max-w-[52rem]">
+            <div className="relative h-10 sm:h-14 lg:h-40 w-full max-w-[10rem] sm:max-w-[22rem] lg:max-w-[52rem]">
               <Image
                 src="/AgentiqBridge Logo 2.png"
                 alt="AgentiqBridge Logo"
@@ -166,8 +166,8 @@ export default function Home() {
           {/* Subtle coral radial bloom behind the image side */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[75%] rounded-full bg-[radial-gradient(ellipse,rgba(255,111,97,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-24 pb-16 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-6rem)]">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-16 sm:pt-20 lg:pt-24 pb-10 sm:pb-16 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-8 items-center min-h-[calc(100vh-6rem)]">
               {/* Left: text content */}
               <div className="flex flex-col justify-center">
                 {/* Eyebrow */}
@@ -179,14 +179,14 @@ export default function Home() {
                 </div>
 
                 {/* Headline */}
-                <h1 className="font-display text-[clamp(3.5rem,9vw,6.5rem)] leading-[0.95] tracking-wide text-white mb-6 animate-fade-up">
+                <h1 className="font-display text-[clamp(2.5rem,9vw,6.5rem)] leading-[0.95] tracking-wide text-white mb-6 animate-fade-up">
                   <span className="block">BRIDGE</span>
                   <span className="block text-[#FF6F61] [text-shadow:0_0_40px_rgba(255,111,97,0.4)]">BRILLIANCE</span>
                   <span className="block">TO BUSINESS</span>
                 </h1>
 
                 {/* Subline */}
-                <p className="text-gray-300 text-lg leading-relaxed max-w-md mb-10 animate-fade-up delay-200 font-body">
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-md mb-8 sm:mb-10 animate-fade-up delay-200 font-body">
                   AgentiqBridge connects forward-thinking enterprises with the SAP consultants, AI specialists, and executive leaders who define the cutting edge.
                 </p>
 
@@ -212,12 +212,12 @@ export default function Home() {
 
               {/* Right: cyber-woman image — 25% smaller to expose more shader */}
               <div className="relative flex items-center justify-center lg:justify-end animate-fade-up delay-400">
-                <div className="relative w-full max-w-[21rem] lg:max-w-[24rem] xl:max-w-[27rem]">
+                <div className="relative w-full max-w-[15rem] sm:max-w-[21rem] lg:max-w-[24rem] xl:max-w-[27rem]">
                   {/* Coral corner accents */}
-                  <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-[#FF6F61] z-10" />
-                  <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-[#FF6F61] z-10" />
+                  <div className="absolute -top-2 -left-2 sm:-top-3 sm:-left-3 w-8 h-8 sm:w-12 sm:h-12 border-t-2 border-l-2 border-[#FF6F61] z-10" />
+                  <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-8 h-8 sm:w-12 sm:h-12 border-b-2 border-r-2 border-[#FF6F61] z-10" />
 
-                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm">
+                  <div className="relative h-52 sm:aspect-[3/4] sm:h-auto w-full overflow-hidden rounded-sm">
                     <Image
                       src="/cyber-woman-charcoal.png"
                       alt="Intersection of technology and human talent"
@@ -407,7 +407,7 @@ export default function Home() {
               >
                 <a
                   href="mailto:AqentiqBridge@gmail.com"
-                  className="btn-coral inline-flex items-center justify-center gap-3 px-10 py-5 rounded-sm text-sm uppercase tracking-widest font-bold animate-[coralPulse_3s_ease-in-out_infinite]"
+                  className="btn-coral w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-10 py-4 sm:py-5 rounded-sm text-xs sm:text-sm uppercase tracking-widest font-bold animate-[coralPulse_3s_ease-in-out_infinite]"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
