@@ -128,7 +128,7 @@ export default function Home() {
               Contact
             </a>
             <a
-              href="mailto:AqentiqBridge@gmail.com"
+              href="#contact"
               className="btn-coral text-xs px-5 py-2.5 rounded-sm uppercase tracking-widest"
             >
               Get in Touch
